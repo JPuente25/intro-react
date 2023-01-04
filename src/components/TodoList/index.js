@@ -4,8 +4,8 @@ import { TodoContext } from '../../TodoContext';
 import { LoadingSkeleton } from '../LoadingSkeleton';
 import './TodoList.css';
 
-export function TodoList() {
-   const { searchValue, todos, loading } = React.useContext(TodoContext);
+export const TodoList = () => {
+   const { searchValue, todos } = React.useContext(TodoContext);
    const filterTodos = todos.filter((item) => item.text.toLowerCase().includes(searchValue.toLowerCase()));
 
    return (

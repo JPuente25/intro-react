@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { TodoContext } from '../TodoContext';
 import './Modal.css';
 
-export function Modal({ children }) {
+export const Modal = ({ children }) => {
    const { openModal } = React.useContext(TodoContext);
    return ReactDOM.createPortal(
       <div className={`ModalBackground

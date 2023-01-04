@@ -1,11 +1,10 @@
 import React from 'react';
 import { TodoContext } from '../../TodoContext';
-import './StyledTodoItem.css';
 import { TodoIcon } from '../TodoIcon';
+import './StyledTodoItem.css';
 
-export function TodoItem({todo}) {
+export const TodoItem = ({ todo }) => {
    const { todos, setTodos } = React.useContext(TodoContext);
-   const [check, setCheck] = React.useState(false);
 
    const onComplete = () => {
       const updatedTodos = todos.map((item) => {
@@ -17,7 +16,6 @@ export function TodoItem({todo}) {
          return item;
       });
       setTodos(updatedTodos);
-      setCheck(prev => !prev);
    };
 
    const onDelete = () => {
@@ -28,7 +26,10 @@ export function TodoItem({todo}) {
    return (
       <li className={`TodoItem ${todo.completed && 'TodoItem--complete'}`}>
          <div onClick={onComplete}>
-            <TodoIcon check={check} icon="check"/>
+            <TodoIcon
+               check={todo.completed}
+               icon="check"
+            />
          </div>
 
          <p
@@ -39,7 +40,7 @@ export function TodoItem({todo}) {
          </p>
 
          <div onClick={onDelete}>
-            <TodoIcon check={check} icon="delete"/>
+            <TodoIcon icon="delete" />
          </div>
       </li>
    );

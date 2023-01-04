@@ -2,10 +2,8 @@ import React from 'react';
 import { AppUI } from './AppUI';
 import { TodoProvider } from '../../TodoContext';
 
-export default function App() {
-   return (
+export const App = () => (
       <TodoProvider>
          <AppUI/>
       </TodoProvider>
-   );
-}
+);

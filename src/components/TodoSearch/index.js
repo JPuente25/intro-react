@@ -1,12 +1,10 @@
 import React from "react";
-import "./StyledTodoSearch.css";
 import { TodoContext } from "../../TodoContext";
+import "./StyledTodoSearch.css";
 
-export function TodoSearch() {
+export const TodoSearch = () => {
    const { searchValue, setSearchValue } = React.useContext(TodoContext);
-   const onSearchValueChange = (event) => {
-      setSearchValue(event.target.value);
-   };
+   const onSearchValueChange = (event) => setSearchValue(event.target.value);
 
    return (
       <div className="TodoSearch-container">

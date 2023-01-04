@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Lobster&display=swap');
 .todoform {
+   font-family: 'Dancing Script', cursive;
    contain: content;
    background-color: white;
    display: flex;
@@ -7,23 +9,25 @@
    color: black;
    padding: 5px 30px 25px 30px;
    border: 2px grey solid;
+   border-radius: 20px;
+   box-shadow: 0 0 150px rgb(117, 114, 114);
 }
 
 .todoform-label {
-   font-family: 'Courier New', Courier, monospace;
    font-weight: 900;
-   font-size: 20px;
+   font-size: 28px;
    padding: 15px 40px;
 }
 
 .todoform-textarea {
+   font-family: 'Dancing Script', cursive;
    box-shadow: 0 5px 50px rgba(32, 35, 41, 0.25);
    border: 2px #6293f4 solid;
-   border-radius: 3px;
+   border-radius: 10px;
    margin: 0 auto;
    width: calc(100% - 30px);
    height: 96px;
-   font-size: 18px;
+   font-size: 22px;
    text-align: center;
 }
 
@@ -35,8 +39,8 @@
 }
 
 .todoform-button {
-   font-family: 'Courier New', Courier, monospace;
-   font-size: 18px;
+   font-family: 'Dancing Script', cursive;
+   font-size: 24px;
    font-weight: 700;
    width: calc(50% - 20px);
    height: 40px;
@@ -46,14 +50,14 @@
 
 .todoform-button:hover {
    cursor: pointer;
-   border-radius: 2px;
+   border-radius: 10px;
    box-shadow: 0px 5px 25px rgba(97, 218, 250, 0.5);
 }
 
 .todoform-button--add:hover {
-   background-color: #61DAFA;
+   background-color: #a5e3f5;
 }
 
 .todoform-button--cancel:hover {
-   background-color: #d15c5c;
+   background-color: #d986867b;
 }

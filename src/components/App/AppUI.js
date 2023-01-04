@@ -7,8 +7,7 @@ import { Modal } from '../../Modal';
 import { TodoForm } from '../../TodoForm';
 import './App.css';
 
-export function AppUI() {
-   return (
+export const AppUI = () => (
       <React.Fragment>
          <h1 className='app-title'>Your Task</h1>
          <TodoCounter />
@@ -19,5 +18,4 @@ export function AppUI() {
          </Modal>
          <CreateTodoButton />
       </React.Fragment>
-   );
-}
+);
