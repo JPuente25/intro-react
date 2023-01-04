@@ -1,16 +1,22 @@
+.TodoSearch-container {
+   display:flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
 .TodoSearch{
    background-color: #F9FBFC;
-   border-radius: 2px;
-   border: 2px solid #202329;
+   border-radius: 20px;
+   border: none;
    margin: 0 24px;
-   height: 64px;
+   height: 48px;
    width: calc(100% - 62px);
    font-size: 24px;
    text-align: center;
    font-family:'Courier New', Courier, monospace;
    font-weight: 400;
    color: #1E1E1F;
-   box-shadow: 0px 5px 5px rgba(32, 35, 41, 0.25);
+   box-shadow: 1px 1px 10px;
 }
 
 .TodoSearch::placeholder {
@@ -21,4 +27,17 @@
 
 .TodoSearch:focus {
    outline-color: #61DAFA;
+}
+
+.TodoSearch-button {
+   background-color: #C38AE6;
+   width: 48px;
+   height: 48px;
+   margin-right: 20px;
+   border-radius: 10px;
+   box-shadow: 1px 1px 10px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 24px;
 }

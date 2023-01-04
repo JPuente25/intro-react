@@ -9,11 +9,14 @@ export function TodoSearch() {
    };
 
    return (
-      <input
-         placeholder="Cebolla"
-         className="TodoSearch"
-         value={searchValue}
-         onChange={onSearchValueChange}
-      />
+      <div className="TodoSearch-container">
+         <input
+            placeholder="Search task"
+            className="TodoSearch"
+            value={searchValue}
+            onChange={onSearchValueChange}
+         />
+         <div className="TodoSearch-button">🐒</div>
+      </div>
    );
 }

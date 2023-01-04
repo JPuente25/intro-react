@@ -2,6 +2,7 @@ import React from 'react';
 import { TodoItem } from '../TodoItem';
 import { TodoContext } from '../../TodoContext';
 import { LoadingSkeleton } from '../LoadingSkeleton';
+import './TodoList.css';
 
 export function TodoList() {
    const { searchValue, todos, loading } = React.useContext(TodoContext);
@@ -9,7 +10,7 @@ export function TodoList() {
 
    return (
       <React.Fragment>
-         <div>
+         <div className='TodoList-container'>
             <LoadingSkeleton />
             <LoadingSkeleton />
             <LoadingSkeleton />
@@ -17,12 +18,12 @@ export function TodoList() {
             <LoadingSkeleton />
             <LoadingSkeleton />
             <LoadingSkeleton />
-         </div>
          {filterTodos.map((item) => (
             <TodoItem
-               key={item.text}
-               todo={item}
+            key={item.text}
+            todo={item}
             />
-         ))}
+            ))}
+         </div>
       </React.Fragment>
    )};

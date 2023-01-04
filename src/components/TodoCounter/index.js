@@ -7,6 +7,6 @@ export function TodoCounter() {
    
    return (
       <h2 className="TodoCounter">
-         Has completado {completedTodos} de {totalTodos} TODOs
+         Completed {completedTodos} to {totalTodos} tasks
       </h2>
    )};

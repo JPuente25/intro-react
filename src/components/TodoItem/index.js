@@ -26,7 +26,7 @@ export function TodoItem({todo}) {
    };
 
    return (
-      <li className="TodoItem">
+      <li className={`TodoItem ${todo.completed && 'TodoItem--complete'}`}>
          <div onClick={onComplete}>
             <TodoIcon check={check} icon="check"/>
          </div>
