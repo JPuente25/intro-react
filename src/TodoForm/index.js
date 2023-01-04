@@ -1,20 +1,13 @@
 import React from "react";
-import { TodoContext } from "../TodoContext";
 import './TodoForm.css'
 
-export function TodoForm() {
+export function TodoForm({todos, setTodos, setOpenModal}) {
    const [newTodoValue, setNewTodoValue] = React.useState('');
 
    const onChangeValue = (event) => {
       const value = event.target.value;
       setNewTodoValue(value);
    }
-
-   const {
-      todos,
-      setTodos,
-      setOpenModal,
-   } = React.useContext(TodoContext);
 
    const onCancel = () => {
       setOpenModal(prev => !prev);
@@ -30,7 +23,6 @@ export function TodoForm() {
       setTodos(newTodos);
       setNewTodoValue('');
    };
-
 
    return(
       <form 

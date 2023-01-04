@@ -1,10 +1,8 @@
 import React from 'react';
-import { TodoContext } from '../../TodoContext';
 import { TodoIcon } from '../TodoIcon';
 import './StyledTodoItem.css';
 
-export const TodoItem = ({ todo }) => {
-   const { todos, setTodos } = React.useContext(TodoContext);
+export const TodoItem = ({ todo, todos, setTodos }) => {
 
    const onComplete = () => {
       const updatedTodos = todos.map((item) => {

@@ -3,6 +3,8 @@ import React from "react";
 export function useLocalStorage(itemName, initialValue) {
    const [loading, setLoading] = React.useState(true);
    const [item, setItem] = React.useState(initialValue);
+   const [searchValue, setSearchValue] = React.useState('');
+   const [openModal, setOpenModal] = React.useState(false);
 
    try{
       React.useEffect(() => {
@@ -33,8 +35,12 @@ export function useLocalStorage(itemName, initialValue) {
    };
 
    return {
-      item, 
-      saveItem, 
-      loading
+      todos: item, 
+      setTodos: saveItem, 
+      loading,
+      searchValue,
+      setSearchValue, 
+      openModal,
+      setOpenModal
    }
 };

@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { TodoContext } from '../TodoContext';
 import './Modal.css';
 
-export const Modal = ({ children }) => {
-   const { openModal } = React.useContext(TodoContext);
+export const Modal = ({ children, openModal }) => {
    return ReactDOM.createPortal(
       <div className={`ModalBackground
                       ${openModal && 'enabled'}`}>

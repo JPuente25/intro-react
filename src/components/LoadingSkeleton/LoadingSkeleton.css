@@ -1,9 +1,10 @@
 .skeleton-box{
    display: none;
-   background-color: rgba(137, 135, 135, 0.333);
+   background-color: rgba(208, 204, 204, 0.5);
    width: 100%;
    height: 72px;
    margin: 20px 0px;
+   border-radius: 20px;
 
    animation: loading-skeleton 1.5s infinite;
 
