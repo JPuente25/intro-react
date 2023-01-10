@@ -1,0 +1,13 @@
+.TodoList-container {
+   width: calc(100% - 24px);
+   margin: 0 auto;
+   overflow: scroll;
+   overflow-x: hidden;
+   overflow-anchor: auto;
+}
+
+.TodoList-container::-webkit-scrollbar {
+   background-color: rgba(215, 247, 183, 0.558);
+   width: 12px;
+   border-radius: 12px;
+}

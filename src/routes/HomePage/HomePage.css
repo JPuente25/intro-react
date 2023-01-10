@@ -1,0 +1,10 @@
+.app-title {
+  font-family: 'Lobster', cursive;
+  font-size: 80px;
+  text-align: center;
+  padding-top: 60px;
+  margin: 0;
+  background: linear-gradient(to bottom, #e9fa01, #9408eb);
+  background-clip: text;
+  color: transparent;
+}

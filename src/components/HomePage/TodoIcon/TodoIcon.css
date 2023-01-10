@@ -1,0 +1,51 @@
+.container {
+   display: flex;
+   width: 35px;
+   position: relative;
+   margin-left: -20px;
+}
+
+
+.enabled {
+   display: flex;
+}
+
+.icon-check--ring, .icon-delete--ring {
+   display: none;
+   background-color: rgba(57, 35, 68, 0.5);
+   width: 30px;
+   height: 30px;
+   border-radius: 50%;
+   justify-content: center;
+   align-items: center;
+}
+
+.icon-check--ring-inside, .icon-delete--ring-inside {
+   background-color: white;
+   width: 22px;
+   height: 22px;
+   border-radius: 50%;
+   color: rgb(220, 220, 220);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 19px;
+}
+
+.icon-check--ring-inside:hover {
+   cursor: pointer;
+}
+
+.icon-check--true, .icon-check--ring-inside:hover {
+   background-color: rgb(56, 131, 158);
+}
+
+.icon-delete--ring-inside {
+   color: rgb(192, 77, 77)
+}
+
+.icon-delete--ring-inside:hover {
+   cursor: pointer;
+   background-color: rgb(192, 77, 77);
+   color: white;
+}

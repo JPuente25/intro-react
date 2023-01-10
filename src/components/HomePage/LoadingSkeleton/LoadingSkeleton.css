@@ -1,0 +1,25 @@
+.skeleton-box{
+   display: flex;
+   background-color: rgba(208, 204, 204, 0.5);
+   width: 100%;
+   height: 72px;
+   margin: 20px 0px;
+   border-radius: 20px;
+
+   animation: loading-skeleton 1.5s infinite;
+
+}
+
+.enabled{
+   display: flex;
+}
+
+@keyframes loading-skeleton {
+   0%, 100%{
+      opacity: 100%
+   }
+
+   50% {
+      opacity: 0%
+   }
+}
