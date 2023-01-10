@@ -1,11 +1,29 @@
 import React from "react";
 
 export function useLocalStorage(itemName, initialValue) {
-   const [loading, setLoading] = React.useState(true);
-   const [item, setItem] = React.useState(initialValue);
-   const [searchValue, setSearchValue] = React.useState('');
-   const [openModal, setOpenModal] = React.useState(false);
+   //UseReducer
+   const [state, dispatch] = 
+      React.useReducer(reducer, initialState(initialValue));
 
+   const {sincronized,
+          loading,
+          item,
+          error } = state;
+
+   //ACTION CREATORS
+   const onError = () => {
+      dispatch ({type: actionTypes.error})
+   };
+
+   const onSuccess = (payload) => {
+      dispatch ({type: actionTypes.success, payload: payload})
+   };
+
+   const onSave = (payload) => {
+      dispatch({type: actionTypes.save, payload: payload});
+   }
+   
+   // UseEffect
    try{
       React.useEffect(() => {
          setTimeout(() => {
@@ -17,30 +35,64 @@ export function useLocalStorage(itemName, initialValue) {
             } else {
                parsedItem = JSON.parse(localStorageItem);
             };
-   
-            setItem(parsedItem);
-            setLoading(false);
-   
+            
+            onSuccess(parsedItem);
          }, 3000);
-      }, [])
+      }, [sincronized]);
    } catch{
-      console.log('error')
+      onError();
    }
-
 
    const saveItem = (newItem) => {
       const stringifiedItem = JSON.stringify(newItem);
       localStorage.setItem(itemName, stringifiedItem);
-      setItem(newItem);
+      onSave(newItem);
    };
-
+   
    return {
       todos: item, 
       setTodos: saveItem, 
-      loading,
-      searchValue,
-      setSearchValue, 
-      openModal,
-      setOpenModal
+      loading, 
+      error,
    }
 };
+
+
+///////////////////////////////////////////////////
+//InitialValue
+const initialState = (initialValue) => ({
+   sincronized: true,
+   loading: true,
+   item: initialValue,
+   error: false
+});
+
+//ActionTypes
+const actionTypes = {
+   error: 'ERROR',
+   success: 'SUCCESS',
+   save: 'SAVE',
+};
+
+//Reducer Function
+const reducer = (state, action) => {
+   return reducerObject(state, action.payload)[action.type] 
+   || state;
+};
+
+//ReducerObject
+const reducerObject = (state, payload) => ({
+   [actionTypes.error]: {
+      ...state,
+      error: true,
+   },
+   [actionTypes.success]: {
+      ...state,
+      item: payload,
+      loading: false,
+   },
+   [actionTypes.save]: {
+      ...state,
+      item: payload,
+   }
+});

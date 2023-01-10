@@ -7,6 +7,8 @@ import { TodoList } from '../TodoList';
 import { Modal } from '../../Modal';
 import { TodoForm } from '../../TodoForm';
 import { TodoHeader } from '../TodoHeader';
+import { TodoError } from '../TodoError';
+import { ChangeAlert } from '../ChangeAlert';
 import './App.css';
 
 export const App = () => {
@@ -14,10 +16,11 @@ export const App = () => {
          todos, 
          setTodos, 
          loading,
-         searchValue,
-         setSearchValue,
-         openModal,
-         setOpenModal} = useLocalStorage('TODOS_V1', []);
+         error,
+      } = useLocalStorage('TODOS_V1', []);
+
+      const [searchValue, setSearchValue] = React.useState('');
+      const [openModal, setOpenModal] = React.useState(false);
       
       const completedTodos = todos.filter((todo) => todo.completed).length;
       const totalTodos = todos.length;
@@ -26,17 +29,18 @@ export const App = () => {
          <React.Fragment>
             <h1 className='app-title'>Your Task</h1>
 
-            <TodoHeader>
-               <TodoCounter 
-                  totalTodos={totalTodos}
-                  completedTodos={completedTodos}/>
-               <TodoSearch 
-                  searchValue={searchValue}
-                  setSearchValue={setSearchValue}/>
+            <TodoHeader loading={loading}>
+                  <TodoCounter 
+                     totalTodos={totalTodos}
+                     completedTodos={completedTodos}/>
+                  <TodoSearch 
+                     searchValue={searchValue}
+                     setSearchValue={setSearchValue}/>
             </TodoHeader>
 
             <TodoList 
                loading={loading}
+               error={error}
                searchValue={searchValue}
                todos={todos}
                setTodos={setTodos} />
@@ -51,6 +55,8 @@ export const App = () => {
 
             <CreateTodoButton
                setOpenModal={setOpenModal} />
+
+            <ChangeAlert />
          </React.Fragment>
       )
    }

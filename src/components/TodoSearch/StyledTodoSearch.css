@@ -41,3 +41,7 @@
    align-items: center;
    font-size: 24px;
 }
+
+.TodoSearch:disabled {
+   opacity: 50%;
+}

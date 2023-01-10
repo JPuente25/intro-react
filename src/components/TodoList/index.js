@@ -1,29 +1,36 @@
 import React from 'react';
 import { TodoItem } from '../TodoItem';
-import { LoadingSkeleton } from '../LoadingSkeleton';
+import { TodoLoading } from '../TodoLoading';
+import { TodoError } from '../TodoError';
+import { TodoEmpty } from '../TodoEmpty';
 import './TodoList.css';
 
-export const TodoList = ({searchValue, todos, loading, setTodos}) => {
-   const filterTodos = todos.filter((item) => item.text.toLowerCase().includes(searchValue.toLowerCase()));
+export const TodoList = ({ searchValue, todos, loading, error, setTodos}) => {
+   const filterTodos = todos.filter((item) =>
+      item.text.toLowerCase().includes(searchValue.toLowerCase())
+   );
 
    return (
-      <React.Fragment>
-         <div className='TodoList-container'>
-            <LoadingSkeleton loading={loading}/>
-            <LoadingSkeleton loading={loading}/>
-            <LoadingSkeleton loading={loading}/>
-            <LoadingSkeleton loading={loading}/>
-            <LoadingSkeleton loading={loading}/>
-            <LoadingSkeleton loading={loading}/>
-            <LoadingSkeleton loading={loading}/>
-         {filterTodos.map((item) => (
-            <TodoItem
-            key={item.text}
-            todo={item}
-            todos={todos}
-            setTodos={setTodos}
-            />
+      <section className="TodoList-container">
+         {/* Loading = true, error = false */}
+         {loading && <TodoLoading loading={loading} />}
+
+         {/* Loading = false, error = false, empty = false */}
+         {!error &&
+            filterTodos.map((item) => (
+               <TodoItem
+                  key={item.text}
+                  todo={item}
+                  todos={todos}
+                  setTodos={setTodos}
+               />
             ))}
-         </div>
-      </React.Fragment>
-   )};
+
+         {/* Loading = false, error = true */}
+         {error && <TodoError />}
+
+         {/* Loading = false, error = false, empty = true */}
+         {!loading && !todos.length && <TodoEmpty />}
+      </section>
+   );
+};
