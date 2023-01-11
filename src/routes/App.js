@@ -20,6 +20,14 @@ const App = () => {
                   path='/new'
                   element={<NewTodoPage />} 
                />
+               <Route 
+                  path='/search/:query'
+                  element={<HomePage />} 
+               />
+               <Route 
+                  path='/search/'
+                  element={<HomePage />} 
+               />
                <Route
                   path='*'
                   element={<p>Not found</p>}

@@ -8,3 +8,7 @@
   background-clip: text;
   color: transparent;
 }
+
+.app-title:hover {
+  cursor: pointer;
+}

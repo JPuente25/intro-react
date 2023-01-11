@@ -7,7 +7,7 @@ import { TodoList } from '../../components/HomePage/TodoList';
 import { TodoHeader } from '../../components/HomePage/TodoHeader';
 import { TodoError } from '../../components/HomePage/TodoError';
 import { ChangeAlert } from '../../components/HomePage/ChangeAlert';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import './HomePage.css';
 
 export const HomePage = () => {
@@ -20,19 +20,27 @@ export const HomePage = () => {
 
    const [searchValue, setSearchValue] = React.useState('');
 
+   const { query } = useParams();
    const navigate = useNavigate();
-   
+
+   if(query && (query !== searchValue)) setSearchValue(query)
+   else if (!query && (searchValue !== '')) setSearchValue('');
+
+
    const completedTodos = todos.filter((todo) => todo.completed).length;
    const totalTodos = todos.length;
 
-   const onCreateTodo = () => {
-      console.log('naegando');
-      navigate('/new');
+   const goHome = () => {
+      navigate('/');
+      window.location.reload();
    }
 
    return (
       <React.Fragment>
-         <h1 className='app-title'>Your Task</h1>
+         <h1 
+            onClick={goHome}
+            className='app-title'
+         >Your Task</h1>
 
          <TodoHeader loading={loading}>
                <TodoCounter 
