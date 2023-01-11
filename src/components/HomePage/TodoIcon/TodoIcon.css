@@ -10,7 +10,7 @@
    display: flex;
 }
 
-.icon-check--ring, .icon-delete--ring {
+.icon-check--ring, .icon-delete--ring, .icon-edit--ring {
    display: none;
    background-color: rgba(57, 35, 68, 0.5);
    width: 30px;
@@ -20,7 +20,7 @@
    align-items: center;
 }
 
-.icon-check--ring-inside, .icon-delete--ring-inside {
+.icon-check--ring-inside, .icon-delete--ring-inside, .icon-edit--ring-inside {
    background-color: white;
    width: 22px;
    height: 22px;
@@ -48,4 +48,13 @@
    cursor: pointer;
    background-color: rgb(192, 77, 77);
    color: white;
+}
+
+.icon-edit--ring-inside:hover {
+   cursor: pointer;
+   background-color: rgb(33, 160, 44);
+}
+
+.icon-edit--ring-inside img {
+   width: 100%;
 }

@@ -1,15 +1,16 @@
 import React from "react";
 import './StyledCreateTodoButton.css';
+import { useNavigate } from 'react-router-dom';
 
-export const CreateTodoButton = ({ setOpenModal }) => {
-   const onModal = () => setOpenModal(prev => !prev);
-
+export const CreateTodoButton = ({route}) => {
+   const navigate = useNavigate();
+   const onNavigate = () => navigate(route)
    return(
-         <button 
+      <button 
          className="CreateTodoButton"
-         onClick={onModal}
-         >
-            +
-         </button>
+         onClick={onNavigate}
+      >
+         +
+      </button>
    );
 }

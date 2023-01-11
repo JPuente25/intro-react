@@ -1,6 +1,7 @@
 import React from "react";
 
 export function useLocalStorage(itemName, initialValue) {
+
    //UseReducer
    const [state, dispatch] = 
       React.useReducer(reducer, initialState(initialValue));
@@ -37,7 +38,7 @@ export function useLocalStorage(itemName, initialValue) {
             };
             
             onSuccess(parsedItem);
-         }, 3000);
+         }, 500);
       }, [sincronized]);
    } catch{
       onError();
